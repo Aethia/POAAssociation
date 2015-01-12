@@ -6,6 +6,7 @@
 package agents;
 
 import static agents.AgentAssociation.dfd;
+import business.Sickness;
 import jade.core.AID;
 import jade.core.Agent;
 import jade.domain.DFService;
@@ -14,6 +15,8 @@ import jade.domain.FIPAAgentManagement.ServiceDescription;
 import jade.domain.FIPAException;
 import jade.lang.acl.ACLMessage;
 import jade.lang.acl.MessageTemplate;
+import java.io.IOException;
+import java.io.Serializable;
 
 /**
  *
@@ -52,8 +55,8 @@ public class AgentMaladies extends Agent{
                     //on va renvoyer la liste des maladies
                     //bdd chercher maladies
                     System.out.println("JAI RECU LE MESSAGE maladiES");
-                    
-                    this.sendMessage(aclMessage.getSender(), "coucou JE TENVOIE EBOLA");
+                    Sickness sn = new Sickness("ebola", 1, 1);
+                    this.sendMessage(aclMessage.getSender(), sn);
                 }catch(Exception e){
                     System.out.println(e);
                 }
@@ -68,10 +71,10 @@ public class AgentMaladies extends Agent{
   
     }
 
-private void sendMessage(AID id, String msg){
+private void sendMessage(AID id, Serializable msg) throws IOException{
         ACLMessage aclMessage = new ACLMessage(ACLMessage.REQUEST);
         aclMessage.addReceiver(id);
-        aclMessage.setContent(msg);
+        aclMessage.setContentObject(msg);
         System.out.println("message : " + msg + "id : "+ id.getName()+"envoyé");
         this.send(aclMessage);
     }

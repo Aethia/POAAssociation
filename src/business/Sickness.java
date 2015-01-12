@@ -5,11 +5,13 @@
  */
 package business;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Aethia
  */
-public class Sickness {
+public class Sickness implements Serializable{
     private String nom;
     private int virulence;
     private int delaiIncubation;
@@ -18,6 +20,12 @@ public class Sickness {
         
     }
 
+    public Sickness(String nom, int virulence, int delaiIncubation) {
+        this.nom = nom;
+        this.virulence = virulence;
+        this.delaiIncubation = delaiIncubation;
+    }
+    
     public String getNom() {
         return nom;
     }

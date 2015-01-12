@@ -5,6 +5,7 @@
  */
 package agents;
 
+import business.Sickness;
 import jade.core.AID;
 import jade.core.Agent;
 import jade.domain.DFService;
@@ -53,8 +54,8 @@ public class AgentAssociation extends Agent {
             ACLMessage aclMessage = this.receive(mt);
             if (aclMessage != null) {
                 try {
-                    String message = aclMessage.getContent();
-                    System.out.println(message);
+                    Sickness message =(Sickness) aclMessage.getContentObject();
+                    System.out.println(message.getNom() +"est recu" + message.getDelaiIncubation());
                 } catch (Exception e) {
                     System.out.println(e);
                 }
