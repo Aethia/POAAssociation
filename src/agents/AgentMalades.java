@@ -57,17 +57,17 @@ public class AgentMalades extends Agent {
                     //on va renvoyer la liste des maladies
                     //bdd chercher maladies
                     switch (message) {
-                        case "liste malades":
+                        case "Liste malades":
                             
-                            SickPeople s = new SickPeople(new Sickness("Ebola", 5, 14), new Country("France"), 5);
-                            SickPeople s2 = new SickPeople(new Sickness("Ebola", 5, 14), new Country("Mali"), 5);
-                            SickPeople s3 = new SickPeople(new Sickness("Cholera", 4, 5), new Country("Senegal"), 5);
-                            SickPeople s4 = new SickPeople(new Sickness("Cholera", 4, 5), new Country("Turquie"), 5);
+                            SickPeople s = new SickPeople(new Sickness("Ebola", 5, 14), new Country("France"), 15);
+                            SickPeople s2 = new SickPeople(new Sickness("Ebola", 5, 14), new Country("Mali"), 52);
+                            SickPeople s3 = new SickPeople(new Sickness("Cholera", 4, 5), new Country("Senegal"), 45);
+                            SickPeople s4 = new SickPeople(new Sickness("Cholera", 4, 5), new Country("Turquie"), 55);
                             SickPeople s5 = new SickPeople(new Sickness("Paludisme", 3, 4), new Country("Syrie"), 5);
-                            SickPeople s6 = new SickPeople(new Sickness("Ebola", 5, 14), new Country("Sri-Lanka"), 5);
-                            SickPeople s7 = new SickPeople(new Sickness("Tuberculose", 5, 7), new Country("Japon"), 5);
-                            SickPeople s8 = new SickPeople(new Sickness("Paludisme", 3, 4), new Country("Inde"), 5);
-                            SickPeople s9 = new SickPeople(new Sickness("Tuberculose", 5, 7), new Country("Maroc"), 5);
+                            SickPeople s6 = new SickPeople(new Sickness("Ebola", 5, 14), new Country("Sri-Lanka"), 25);
+                            SickPeople s7 = new SickPeople(new Sickness("Tuberculose", 5, 7), new Country("Japon"), 25);
+                            SickPeople s8 = new SickPeople(new Sickness("Paludisme", 3, 4), new Country("Inde"), 43);
+                            SickPeople s9 = new SickPeople(new Sickness("Tuberculose", 5, 7), new Country("Maroc"), 76);
 
                             ArrayList<SickPeople> lMalades = new ArrayList();
                             lMalades.add(s);

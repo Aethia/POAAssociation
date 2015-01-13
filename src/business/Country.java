@@ -5,11 +5,13 @@
  */
 package business;
 
+import java.io.Serializable;
+
 /**
  *
  * @author ASUS
  */
-public class Country {
+public class Country implements Serializable{
     private String country;
 
     public Country(String country) {

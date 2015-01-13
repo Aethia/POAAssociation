@@ -5,11 +5,13 @@
  */
 package business;
 
+import java.io.Serializable;
+
 /**
  *
  * @author ASUS
  */
-public class SickPeople {
+public class SickPeople implements Serializable{
     private Sickness sick;
     private Country country;
     private int nbSick;

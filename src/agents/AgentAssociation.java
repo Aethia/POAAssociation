@@ -5,6 +5,7 @@
  */
 package agents;
 
+import business.SickPeople;
 import business.Sickness;
 import jade.core.AID;
 import jade.core.Agent;
@@ -44,6 +45,8 @@ public class AgentAssociation extends Agent {
         AID a = this.searchService("MALADIES");
         this.sendMessage(a, "Liste maladies");
         this.sendMessage(a, "Details maladie : Ebola");
+        AID a2 = this.searchService("malades");
+        this.sendMessage(a2, "Liste malades");
         this.receiveMessage();
     }
 
@@ -51,20 +54,32 @@ public class AgentAssociation extends Agent {
         while (true) {
             MessageTemplate mt = MessageTemplate.MatchPerformative(ACLMessage.REQUEST);
             ACLMessage aclMessage = this.receive(mt);
-            
+
             if (aclMessage != null) {
                 try {
-                    if(aclMessage.getContentObject() instanceof ArrayList){
-                        ArrayList<Sickness> sicknesses = (ArrayList<Sickness>)aclMessage.getContentObject();
-                        for(Sickness i : sicknesses){
-                            System.out.println(i.getNom() +" est recu" + i.getDelaiIncubation());
+                    // si c'est l'agent maladie qui répond
+                    if (aclMessage.getSender().equals(this.searchService("MALADIES"))) {
+                        if (aclMessage.getContentObject() instanceof ArrayList) {
+                            ArrayList<Sickness> sicknesses = (ArrayList<Sickness>) aclMessage.getContentObject();
+                            for (Sickness i : sicknesses) {
+                                System.out.println(i.getNom() + " est recu" + i.getDelaiIncubation());
+                            }
+                        } else if (aclMessage.getContentObject() instanceof Sickness) {
+                            System.out.println("maladie");
+                            Sickness message = (Sickness) aclMessage.getContentObject();
+                            System.out.println(message.getNom() + " est recu, delai d'incubation : " + message.getDelaiIncubation());
                         }
                     }
-                    else if(aclMessage.getContentObject() instanceof Sickness){
-                        System.out.println("maladie");
-                        Sickness message =(Sickness) aclMessage.getContentObject();
-                        System.out.println(message.getNom() +" est recu" + message.getDelaiIncubation());
+                    else if (aclMessage.getSender().equals(this.searchService("MALADES"))){
+                        if (aclMessage.getContentObject() instanceof ArrayList) {
+                            ArrayList<SickPeople> sickPeople = (ArrayList<SickPeople>) aclMessage.getContentObject();
+                            for (SickPeople i : sickPeople) {
+                                System.out.println("Il y a "+i.getNbSick()+" malade de la maladie "+i.getSick().getNom()+" au pays "+i.getCountry().getCountry());
+                            }
+                        }
                     }
+                   
+
                 } catch (Exception e) {
                     System.out.println(e);
                 }
@@ -81,7 +96,7 @@ public class AgentAssociation extends Agent {
     private AID searchService(String service) {
         DFAgentDescription dfd = new DFAgentDescription();
         ServiceDescription sd = new ServiceDescription();
-        sd.setType("maladies");
+        sd.setType(service);
         dfd.addServices(sd);
         AID aid = null;
         try {
@@ -108,7 +123,6 @@ public class AgentAssociation extends Agent {
         } catch (FIPAException fe) {
             fe.printStackTrace();
         }
-        // Printout a dismissal message 
         System.out.println("Agent : " + getAID().getName() + " terminé");
     }
 
@@ -116,7 +130,6 @@ public class AgentAssociation extends Agent {
         ACLMessage aclMessage = new ACLMessage(ACLMessage.REQUEST);
         aclMessage.addReceiver(id);
         aclMessage.setContent(msg);
-        System.out.println("message : " + msg + "id : " + id.getName() + "envoyé");
         this.send(aclMessage);
     }
 
