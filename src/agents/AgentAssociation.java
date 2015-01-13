@@ -41,8 +41,6 @@ public class AgentAssociation extends Agent {
             fe.printStackTrace();
         }
 
-        //ASK DATA
-        System.out.println("Mon nom est " + this.getLocalName());
         AID a = this.searchService("MALADIES");
         this.sendMessage(a, "liste maladies");
         this.receiveMessage();

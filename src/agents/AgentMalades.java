@@ -6,6 +6,8 @@
 package agents;
 
 import static agents.AgentAssociation.dfd;
+import business.Country;
+import business.SickPeople;
 import business.Sickness;
 import jade.core.AID;
 import jade.core.Agent;
@@ -23,7 +25,7 @@ import java.util.ArrayList;
  *
  * @author Aethia
  */
-public class AgentMaladies extends Agent {
+public class AgentMalades extends Agent {
 
     @Override
     protected void setup() {
@@ -33,15 +35,14 @@ public class AgentMaladies extends Agent {
         dfd = new DFAgentDescription();
         dfd.setName(getAID());
         ServiceDescription sd = new ServiceDescription();
-        sd.setType("maladies");
-        sd.setName("MALADIES");
+        sd.setType("malades");
+        sd.setName("MALADES");
         dfd.addServices(sd);
         try {
             DFService.register(this, dfd);
         } catch (FIPAException fe) {
             fe.printStackTrace();
         }
-
         this.receiveMessage();
     }
 
@@ -56,20 +57,32 @@ public class AgentMaladies extends Agent {
                     //on va renvoyer la liste des maladies
                     //bdd chercher maladies
                     switch (message) {
-                        case "liste maladies":
-                            Sickness sn = new Sickness("Ebola", 5, 14);
-                            Sickness sn2 = new Sickness("Cholera", 4, 5);
-                            Sickness sn3 = new Sickness("Paludisme", 3, 4);
-                            Sickness sn4 = new Sickness("Tuberculose", 5, 7);
+                        case "liste malades":
+                            
+                            SickPeople s = new SickPeople(new Sickness("Ebola", 5, 14), new Country("France"), 5);
+                            SickPeople s2 = new SickPeople(new Sickness("Ebola", 5, 14), new Country("Mali"), 5);
+                            SickPeople s3 = new SickPeople(new Sickness("Cholera", 4, 5), new Country("Senegal"), 5);
+                            SickPeople s4 = new SickPeople(new Sickness("Cholera", 4, 5), new Country("Turquie"), 5);
+                            SickPeople s5 = new SickPeople(new Sickness("Paludisme", 3, 4), new Country("Syrie"), 5);
+                            SickPeople s6 = new SickPeople(new Sickness("Ebola", 5, 14), new Country("Sri-Lanka"), 5);
+                            SickPeople s7 = new SickPeople(new Sickness("Tuberculose", 5, 7), new Country("Japon"), 5);
+                            SickPeople s8 = new SickPeople(new Sickness("Paludisme", 3, 4), new Country("Inde"), 5);
+                            SickPeople s9 = new SickPeople(new Sickness("Tuberculose", 5, 7), new Country("Maroc"), 5);
 
-                            ArrayList<Sickness> lMaladies = new ArrayList();
-                            lMaladies.add(sn);
-                            lMaladies.add(sn2);
-                            lMaladies.add(sn3);
-                            lMaladies.add(sn4);
+                            ArrayList<SickPeople> lMalades = new ArrayList();
+                            lMalades.add(s);
+                            lMalades.add(s2);
+                            lMalades.add(s3);
+                            lMalades.add(s4);
+                            lMalades.add(s5);
+                            lMalades.add(s6);
+                            lMalades.add(s7);
+                            lMalades.add(s8);
+                            lMalades.add(s9);
+                            
 
-                            System.out.println("j'envoie le message " + message);
-                            this.sendMessage(aclMessage.getSender(), lMaladies);
+                            System.out.println("j'envoie la liste des malades");
+                            this.sendMessage(aclMessage.getSender(), lMalades);
 
                             break;    
                     }
