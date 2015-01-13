@@ -56,35 +56,49 @@ public class AgentMalades extends Agent {
                     //message = demande
                     //on va renvoyer la liste des maladies
                     //bdd chercher maladies
+                    
+                    SickPeople s = new SickPeople(new Sickness("Ebola", 5, 14), new Country("France"), 15);
+                    SickPeople s2 = new SickPeople(new Sickness("Ebola", 5, 14), new Country("Mali"), 52);
+                    SickPeople s3 = new SickPeople(new Sickness("Cholera", 4, 5), new Country("Senegal"), 45);
+                    SickPeople s4 = new SickPeople(new Sickness("Cholera", 4, 5), new Country("Turquie"), 55);
+                    SickPeople s5 = new SickPeople(new Sickness("Paludisme", 3, 4), new Country("Syrie"), 5);
+                    SickPeople s6 = new SickPeople(new Sickness("Ebola", 5, 14), new Country("Sri-Lanka"), 25);
+                    SickPeople s7 = new SickPeople(new Sickness("Tuberculose", 5, 7), new Country("Japon"), 25);
+                    SickPeople s8 = new SickPeople(new Sickness("Paludisme", 3, 4), new Country("Inde"), 43);
+                    SickPeople s9 = new SickPeople(new Sickness("Tuberculose", 5, 7), new Country("Maroc"), 76);
+                    SickPeople s10 = new SickPeople(new Sickness("Paludisme", 3, 4), new Country("Mali"), 33);
+
+                    ArrayList<SickPeople> lMalades = new ArrayList();
+                    lMalades.add(s);
+                    lMalades.add(s2);
+                    lMalades.add(s3);
+                    lMalades.add(s4);
+                    lMalades.add(s5);
+                    lMalades.add(s6);
+                    lMalades.add(s7);
+                    lMalades.add(s8);
+                    lMalades.add(s9);
+                    lMalades.add(s10);
+                            
                     switch (message) {
                         case "Liste malades":
-                            
-                            SickPeople s = new SickPeople(new Sickness("Ebola", 5, 14), new Country("France"), 15);
-                            SickPeople s2 = new SickPeople(new Sickness("Ebola", 5, 14), new Country("Mali"), 52);
-                            SickPeople s3 = new SickPeople(new Sickness("Cholera", 4, 5), new Country("Senegal"), 45);
-                            SickPeople s4 = new SickPeople(new Sickness("Cholera", 4, 5), new Country("Turquie"), 55);
-                            SickPeople s5 = new SickPeople(new Sickness("Paludisme", 3, 4), new Country("Syrie"), 5);
-                            SickPeople s6 = new SickPeople(new Sickness("Ebola", 5, 14), new Country("Sri-Lanka"), 25);
-                            SickPeople s7 = new SickPeople(new Sickness("Tuberculose", 5, 7), new Country("Japon"), 25);
-                            SickPeople s8 = new SickPeople(new Sickness("Paludisme", 3, 4), new Country("Inde"), 43);
-                            SickPeople s9 = new SickPeople(new Sickness("Tuberculose", 5, 7), new Country("Maroc"), 76);
-
-                            ArrayList<SickPeople> lMalades = new ArrayList();
-                            lMalades.add(s);
-                            lMalades.add(s2);
-                            lMalades.add(s3);
-                            lMalades.add(s4);
-                            lMalades.add(s5);
-                            lMalades.add(s6);
-                            lMalades.add(s7);
-                            lMalades.add(s8);
-                            lMalades.add(s9);
-                            
-
                             System.out.println("j'envoie la liste des malades");
                             this.sendMessage(aclMessage.getSender(), lMalades);
 
                             break;    
+                    }
+                    
+                    if(message.contains("Pays")){
+                        System.out.println("on touche des pays ");
+                        String pays = message.split(" : ")[1];
+                        for (SickPeople i : lMalades) {
+                            if (i.getCountry().getCountry().equals(pays)) {
+                                
+                                ArrayList<SickPeople> maladesPays = new ArrayList();
+                                maladesPays.add(i);
+                                this.sendMessage(aclMessage.getSender(), maladesPays);
+                            }
+                        }
                     }
 
                 } catch (Exception e) {

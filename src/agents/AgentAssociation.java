@@ -47,6 +47,7 @@ public class AgentAssociation extends Agent {
         this.sendMessage(a, "Details maladie : Ebola");
         AID a2 = this.searchService("malades");
         this.sendMessage(a2, "Liste malades");
+        this.sendMessage(a2, "Pays atteint : Mali");
         this.receiveMessage();
     }
 
