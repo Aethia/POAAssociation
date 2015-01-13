@@ -17,6 +17,7 @@ import jade.lang.acl.ACLMessage;
 import jade.lang.acl.MessageTemplate;
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  *
@@ -55,8 +56,22 @@ public class AgentMaladies extends Agent{
                     //on va renvoyer la liste des maladies
                     //bdd chercher maladies
                     System.out.println("JAI RECU LE MESSAGE maladiES");
-                    Sickness sn = new Sickness("ebola", 1, 1);
-                    this.sendMessage(aclMessage.getSender(), sn);
+                    Sickness sn = new Sickness("Ebola", 5, 14);
+                    Sickness sn2 = new Sickness("Cholera", 4, 5);
+                    Sickness sn3 = new Sickness("Paludisme", 3, 4);
+                    Sickness sn4 = new Sickness("Tuberculose", 5, 7);
+                    
+                    ArrayList<Sickness> lMaladies = new ArrayList();
+                    lMaladies.add(sn);
+                    lMaladies.add(sn2);
+                    lMaladies.add(sn3);
+                    lMaladies.add(sn4);
+                     
+                    if(message.equals("Liste maladies")){
+                       System.out.println(message);
+                        this.sendMessage(aclMessage.getSender(), lMaladies);
+                    }
+                    
                 }catch(Exception e){
                     System.out.println(e);
                 }

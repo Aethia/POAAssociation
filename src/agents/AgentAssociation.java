@@ -14,6 +14,7 @@ import jade.domain.FIPAAgentManagement.ServiceDescription;
 import jade.domain.FIPAException;
 import jade.lang.acl.ACLMessage;
 import jade.lang.acl.MessageTemplate;
+import java.util.ArrayList;
 
 /**
  *
@@ -43,7 +44,7 @@ public class AgentAssociation extends Agent {
         //ASK DATA
         System.out.println("Mon nom est " + this.getLocalName());
         AID a = this.searchService("MALADIES");
-        this.sendMessage(a, "Send me your diseases");
+        this.sendMessage(a, "Liste maladies");
 
         this.receiveMessage();
     }
@@ -52,10 +53,22 @@ public class AgentAssociation extends Agent {
         while (true) {
             MessageTemplate mt = MessageTemplate.MatchPerformative(ACLMessage.REQUEST);
             ACLMessage aclMessage = this.receive(mt);
+            
             if (aclMessage != null) {
+                System.out.println("OI");
                 try {
-                    Sickness message =(Sickness) aclMessage.getContentObject();
-                    System.out.println(message.getNom() +"est recu" + message.getDelaiIncubation());
+                    System.out.println("listes");
+                    if(aclMessage.getContentObject() instanceof ArrayList){
+                        ArrayList<Sickness> sicknesses = (ArrayList<Sickness>)aclMessage.getContentObject();
+                        for(Sickness i : sicknesses){
+                            System.out.println(i.getNom() +"est recu" + i.getDelaiIncubation());
+                        }
+                    }
+                    else if(aclMessage.getContentObject() instanceof Sickness){
+                        System.out.println("maladie");
+                        Sickness message =(Sickness) aclMessage.getContentObject();
+                        System.out.println(message.getNom() +"est recu" + message.getDelaiIncubation());
+                    }
                 } catch (Exception e) {
                     System.out.println(e);
                 }
