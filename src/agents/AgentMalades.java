@@ -29,7 +29,6 @@ public class AgentMalades extends Agent {
 
     @Override
     protected void setup() {
-        System.out.println("Mon nom est " + this.getLocalName());
 
         //AJOUTER UN SERVICE
         dfd = new DFAgentDescription();
@@ -82,14 +81,12 @@ public class AgentMalades extends Agent {
                             
                     switch (message) {
                         case "Liste malades":
-                            System.out.println("j'envoie la liste des malades");
                             this.sendMessage(aclMessage.getSender(), lMalades);
 
                             break;    
                     }
                     
                     if(message.contains("Pays")){
-                        System.out.println("on touche des pays ");
                         String pays = message.split(" : ")[1];
                         for (SickPeople i : lMalades) {
                             if (i.getCountry().getCountry().equals(pays)) {
@@ -118,7 +115,6 @@ public class AgentMalades extends Agent {
         ACLMessage aclMessage = new ACLMessage(ACLMessage.REQUEST);
         aclMessage.addReceiver(id);
         aclMessage.setContentObject(msg);
-        System.out.println("message : " + msg + "id : " + id.getName() + "envoyé");
         this.send(aclMessage);
     }
 

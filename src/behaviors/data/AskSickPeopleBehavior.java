@@ -19,14 +19,14 @@ import jade.lang.acl.MessageTemplate;
  *
  * @author Aethia Demande les informations sur les maladies
  */
-public class AskSicknessBehavior extends OneShotBehaviour {
+public class AskSickPeopleBehavior extends OneShotBehaviour {
 
     @Override
     public void action() {
-        AID a = SearchService.searchService("MALADIES", myAgent);
+        AID a = SearchService.searchService("malades", myAgent);
         ACLMessage aclMessage = new ACLMessage(ACLMessage.REQUEST);
         aclMessage.addReceiver(a);
-        aclMessage.setContent("Liste maladies");
+        aclMessage.setContent("Liste malades");
         myAgent.send(aclMessage);
     }
 }

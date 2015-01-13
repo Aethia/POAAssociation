@@ -16,12 +16,22 @@ public class Vaccine implements Serializable {
     private String datePeremption;
     private int taille;
     private Sickness maladie;
+    private int price;
 
-    public Vaccine(String nom, String dp, int taille, Sickness mal){
+    public Vaccine(String nom, String dp, int taille, Sickness mal, int price){
         this.nom=nom;
         this.datePeremption=dp;
         this.taille=taille;
         this.maladie=mal;
+        this.price = price;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
     
     public String getNom() {

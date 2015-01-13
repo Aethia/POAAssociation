@@ -5,7 +5,10 @@
  */
 package behaviors.data;
 
+import business.SearchService;
+import jade.core.AID;
 import jade.core.behaviours.OneShotBehaviour;
+import jade.lang.acl.ACLMessage;
 
 /**
  *
@@ -15,7 +18,11 @@ public class AskVaccinesBehavior extends OneShotBehaviour{
 
     @Override
     public void action() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       AID a = SearchService.searchService("LABORATOIRES", myAgent);
+        ACLMessage aclMessage = new ACLMessage(ACLMessage.REQUEST);
+        aclMessage.addReceiver(a);
+        aclMessage.setContent("Liste vaccins");
+        myAgent.send(aclMessage);
     }
     
 }

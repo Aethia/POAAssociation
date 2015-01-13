@@ -27,7 +27,6 @@ public class AgentMaladies extends Agent {
 
     @Override
     protected void setup() {
-        System.out.println("Mon nom est " + this.getLocalName());
 
         //AJOUTER UN SERVICE
         dfd = new DFAgentDescription();
@@ -68,7 +67,6 @@ public class AgentMaladies extends Agent {
 
                     switch (message) {
                         case "Liste maladies":
-                            System.out.println("j'envoie le message " + message);
                             this.sendMessage(aclMessage.getSender(), lMaladies);
                             break;
 
@@ -100,7 +98,6 @@ public class AgentMaladies extends Agent {
         ACLMessage aclMessage = new ACLMessage(ACLMessage.REQUEST);
         aclMessage.addReceiver(id);
         aclMessage.setContentObject(msg);
-        System.out.println("message : " + msg + "id : " + id.getName() + "envoyé");
         this.send(aclMessage);
     }
 
