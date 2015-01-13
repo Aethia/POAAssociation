@@ -55,23 +55,34 @@ public class AgentMaladies extends Agent {
                     //message = demande
                     //on va renvoyer la liste des maladies
                     //bdd chercher maladies
+                    
+                    Sickness sn = new Sickness("Ebola", 5, 14);
+                    Sickness sn2 = new Sickness("Cholera", 4, 5);
+                    Sickness sn3 = new Sickness("Paludisme", 3, 4);
+                    Sickness sn4 = new Sickness("Tuberculose", 5, 7);
+                    ArrayList<Sickness> lMaladies = new ArrayList();
+                    lMaladies.add(sn);
+                    lMaladies.add(sn2);
+                    lMaladies.add(sn3);
+                    lMaladies.add(sn4);
+                    
                     switch (message) {
-                        case "liste maladies":
-                            Sickness sn = new Sickness("Ebola", 5, 14);
-                            Sickness sn2 = new Sickness("Cholera", 4, 5);
-                            Sickness sn3 = new Sickness("Paludisme", 3, 4);
-                            Sickness sn4 = new Sickness("Tuberculose", 5, 7);
-
-                            ArrayList<Sickness> lMaladies = new ArrayList();
-                            lMaladies.add(sn);
-                            lMaladies.add(sn2);
-                            lMaladies.add(sn3);
-                            lMaladies.add(sn4);
+                        case "Liste maladies":
 
                             System.out.println("j'envoie le message " + message);
                             this.sendMessage(aclMessage.getSender(), lMaladies);
 
                             break;
+                       
+                    }
+                    if(message.contains("Details")){
+                        String maladie = message.split(" : ")[1];
+                        for(Sickness i : lMaladies){
+                            if(i.getNom().equals(maladie)){
+                                this.sendMessage(aclMessage.getSender(), i);
+                            }
+                        }
+                        
                     }
 
                 } catch (Exception e) {
