@@ -44,8 +44,7 @@ public class AgentAssociation extends Agent {
         //ASK DATA
         System.out.println("Mon nom est " + this.getLocalName());
         AID a = this.searchService("MALADIES");
-        this.sendMessage(a, "Liste maladies");
-
+        this.sendMessage(a, "liste maladies");
         this.receiveMessage();
     }
 
@@ -57,7 +56,6 @@ public class AgentAssociation extends Agent {
             if (aclMessage != null) {
                 System.out.println("OI");
                 try {
-                    System.out.println("listes");
                     if(aclMessage.getContentObject() instanceof ArrayList){
                         ArrayList<Sickness> sicknesses = (ArrayList<Sickness>)aclMessage.getContentObject();
                         for(Sickness i : sicknesses){
