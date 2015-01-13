@@ -42,7 +42,8 @@ public class AgentAssociation extends Agent {
         }
 
         AID a = this.searchService("MALADIES");
-        this.sendMessage(a, "liste maladies");
+        this.sendMessage(a, "Liste maladies");
+        this.sendMessage(a, "Details maladie : Ebola");
         this.receiveMessage();
     }
 
@@ -52,18 +53,17 @@ public class AgentAssociation extends Agent {
             ACLMessage aclMessage = this.receive(mt);
             
             if (aclMessage != null) {
-                System.out.println("OI");
                 try {
                     if(aclMessage.getContentObject() instanceof ArrayList){
                         ArrayList<Sickness> sicknesses = (ArrayList<Sickness>)aclMessage.getContentObject();
                         for(Sickness i : sicknesses){
-                            System.out.println(i.getNom() +"est recu" + i.getDelaiIncubation());
+                            System.out.println(i.getNom() +" est recu" + i.getDelaiIncubation());
                         }
                     }
                     else if(aclMessage.getContentObject() instanceof Sickness){
                         System.out.println("maladie");
                         Sickness message =(Sickness) aclMessage.getContentObject();
-                        System.out.println(message.getNom() +"est recu" + message.getDelaiIncubation());
+                        System.out.println(message.getNom() +" est recu" + message.getDelaiIncubation());
                     }
                 } catch (Exception e) {
                     System.out.println(e);
