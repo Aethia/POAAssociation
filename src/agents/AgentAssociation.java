@@ -7,6 +7,7 @@ package agents;
 
 import business.SickPeople;
 import business.Sickness;
+import business.Vaccine;
 import jade.core.AID;
 import jade.core.Agent;
 import jade.domain.DFService;
@@ -48,6 +49,10 @@ public class AgentAssociation extends Agent {
         AID a2 = this.searchService("malades");
         this.sendMessage(a2, "Liste malades");
         this.sendMessage(a2, "Pays atteint : Mali");
+        AID a3 = this.searchService("LABORATOIRES");
+        //this.sendMessage(a3, "Liste vaccins");
+        this.sendMessage(a3, "Vaccin maladie : Tuberculose");
+        this.sendMessage(a3, "Details vaccin : Vaccin_1");
         this.receiveMessage();
     }
 
@@ -79,6 +84,19 @@ public class AgentAssociation extends Agent {
                             }
                         }
                     }
+                    else if (aclMessage.getSender().equals(this.searchService("LABORATOIRES"))) {
+                        if (aclMessage.getContentObject() instanceof ArrayList) {
+                            ArrayList<Vaccine> vaccines = (ArrayList<Vaccine>) aclMessage.getContentObject();
+                            for (Vaccine i : vaccines) {
+                                System.out.println(i.getNom() + " guérit " + i.getMaladie().getNom());
+                            }
+                        } else if (aclMessage.getContentObject() instanceof Vaccine) {
+                            
+                            Vaccine message = (Vaccine) aclMessage.getContentObject();
+                            System.out.println(message.getNom() + " guérit la maladie " + message.getMaladie().getNom());
+                        }
+                    }
+                    
                    
 
                 } catch (Exception e) {
