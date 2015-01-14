@@ -79,6 +79,21 @@ public class ReceiveBehavior extends CyclicBehaviour {
                             System.out.println(message.getNom() + " guérit " + message.getMaladie().getNom()+" et coûte "+message.getPrice());
                         }
                     }
+                    else if (aclMessage.getSender().equals(SearchService.searchService("compagnie",myAgent))) {
+                        if (aclMessage.getContentObject() instanceof ArrayList) {
+                            ArrayList<Vaccine> vaccines = (ArrayList<Vaccine>) aclMessage.getContentObject();
+                            assoc.setVaccines(vaccines);
+                            System.out.println("Il y a actuellement "+vaccines.size()+" vaccins fabriqués.");
+                            for (Vaccine i : vaccines) {
+                                System.out.println("- "+i.getNom() + " guérit " + i.getMaladie().getNom()+" et coûte "+i.getPrice());
+                            }
+                        } else if (aclMessage.getContentObject() instanceof Vaccine) {
+                            Vaccine message = (Vaccine) aclMessage.getContentObject();
+                            System.out.println(message.getNom() + " guérit " + message.getMaladie().getNom()+" et coûte "+message.getPrice());
+                        }
+                    }
+                    
+                    
                 } catch (Exception e) {
                     System.out.println(e);
                 }
