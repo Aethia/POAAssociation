@@ -90,6 +90,27 @@ public class AssociationOntology extends Ontology{
             
             //structure pays
             cs = (ConceptSchema) getSchema(PAYS);
+            cs.add(PAYS_NAME, (PrimitiveSchema) getSchema(BasicOntology.STRING));
+            
+            //structure vol
+            cs = (ConceptSchema) getSchema(VOL);
+            cs.add(VOL_ID, (PrimitiveSchema) getSchema(BasicOntology.INTEGER));
+            cs.add(VOL_DEPART, (PrimitiveSchema) getSchema(BasicOntology.DATE));
+            cs.add(VOL_ARRIVE, (PrimitiveSchema) getSchema(BasicOntology.DATE));
+            
+            //Structure offre
+            cs = (ConceptSchema) getSchema(OFFRE);
+            cs.add(OFFRE_IDOFFRE, (PrimitiveSchema) getSchema(BasicOntology.INTEGER));
+            cs.add(OFFRE_VOL, (ConceptSchema) getSchema(VOL));
+            cs.add(OFFRE_PRIX_INITIAL, (PrimitiveSchema) getSchema(BasicOntology.INTEGER));
+            cs.add(OFFRE_NOUVEAU_PRIX, (PrimitiveSchema) getSchema(BasicOntology.INTEGER));
+            
+            //Structure SickPeople
+            cs = (ConceptSchema) getSchema(SICKPEOPLE);
+            cs.add(SICKPEOPLE_SICK, (ConceptSchema) getSchema(SICKNESS));
+            cs.add(SICKPEOPLE_PAYS, (ConceptSchema) getSchema(PAYS));
+            cs.add(SICKPEOPLE_NBSICK, (PrimitiveSchema) getSchema(BasicOntology.INTEGER));
+
             
             //on a pas pris en compte les tables intermediaires, comme on a simplifié
         } catch (OntologyException e) {

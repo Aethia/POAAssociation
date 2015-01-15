@@ -16,6 +16,9 @@ import behaviors.data.ReceiveFlightsBehavior;
 import business.SickPeople;
 import business.Sickness;
 import business.Vaccine;
+import jade.content.lang.Codec;
+import jade.content.lang.sl.SLCodec;
+import jade.content.onto.Ontology;
 import jade.core.Agent;
 import jade.domain.DFService;
 import jade.domain.FIPAAgentManagement.DFAgentDescription;
@@ -24,13 +27,15 @@ import jade.domain.FIPAException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import ontologies.AssociationOntology;
 
 /**
  *
  * @author Aethia
  */
 public class AgentAssociation extends Agent {
-
+    private Codec codec = new SLCodec();
+    private Ontology ontology = AssociationOntology.getInstance();
     public static DFAgentDescription dfd;
 
     public ArrayList<Offre> getLesOffres() {
@@ -97,6 +102,8 @@ public class AgentAssociation extends Agent {
     @Override
     protected void setup() {
         init();
+        getContentManager().registerLanguage(codec);
+        getContentManager().registerOntology(ontology);
         addBehaviour(new ReceiveBehavior());
         addBehaviour(new ReceiveFlightsBehavior());
         
