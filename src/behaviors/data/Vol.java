@@ -1,6 +1,7 @@
 package behaviors.data;
 
 
+import jade.content.Concept;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
@@ -8,7 +9,7 @@ import java.util.Date;
 /**
  * Created by RadiuM on 13/01/2015.
  */
-public class Vol implements Serializable{
+public class Vol implements Serializable, Concept{
 
     private int id;
     private Date depart;

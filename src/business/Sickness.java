@@ -5,13 +5,14 @@
  */
 package business;
 
+import jade.content.Concept;
 import java.io.Serializable;
 
 /**
  *
  * @author Aethia
  */
-public class Sickness implements Serializable{
+public class Sickness implements Serializable, Concept{
     private String nom;
     private int virulence;
     private int delaiIncubation;
