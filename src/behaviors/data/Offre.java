@@ -2,6 +2,7 @@ package behaviors.data;
 
 
 
+import jade.content.Concept;
 import java.io.Serializable;
 
 /*
@@ -13,7 +14,7 @@ import java.io.Serializable;
  *
  * @author romain
  */
-public class Offre implements Comparable, Serializable  {
+public class Offre implements Comparable, Serializable, Concept  {
     
     private int idOffre;
     private Vol vol;

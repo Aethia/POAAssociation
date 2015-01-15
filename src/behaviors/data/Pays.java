@@ -1,12 +1,13 @@
 package behaviors.data;
 
 
+import jade.content.Concept;
 import java.io.Serializable;
 
 /**
  * Created by RadiuM on 13/01/2015.
  */
-public class Pays implements Serializable {
+public class Pays implements Serializable, Concept {
     private String name;
 
 
