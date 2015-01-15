@@ -15,7 +15,7 @@ import jade.lang.acl.ACLMessage;
  *
  * @author Aethia
  */
-public class AskFlightsBehavior extends OneShotBehaviour{
+public class BuyFlightBehavior extends OneShotBehaviour{
 
     public static final int MSG_DEM_VOL = 1000;
     public static final int MSG_REP_OFFRES = 1001;
@@ -24,22 +24,20 @@ public class AskFlightsBehavior extends OneShotBehaviour{
     public static final int MSG_DEM_ACHAT = 1005;
     public static final int MSG_REP_ACHAT = 1006;
     
-    private String countryname;
-    private Integer nbSick;
+    private String flightId;
     
-    public AskFlightsBehavior(String country, Integer nbSick){
-        this.countryname = country;
-        this.nbSick = nbSick;
+    public BuyFlightBehavior(String idFlight){
+        this.flightId = idFlight;
     }
     
     @Override
     public void action() {
         AID a = SearchService.searchService("companie", myAgent);
-        ACLMessage aclMessage = new ACLMessage(AskFlightsBehavior.MSG_DEM_VOL);
+        ACLMessage aclMessage = new ACLMessage(BuyFlightBehavior.MSG_DEM_ACHAT);
         aclMessage.addReceiver(a);
-        aclMessage.setContent(countryname+";"+nbSick);
+        aclMessage.setContent(flightId);
         myAgent.send(aclMessage);
-        System.out.println("on demande les vols pour "+countryname);
+        System.out.println("on demande a acheter le vol "+flightId);
     }
     
 }

@@ -36,11 +36,13 @@ public class ReceiveFlightsBehavior extends CyclicBehaviour {
                         asso.setLesOffres(lesoffres);
                         System.out.println(lesoffres.size() + " offres recues");
                         Collections.sort(lesoffres);
-                  /*      for (int i=0;i<lesoffres.size();i++){
+                     /*   for (int i=0;i<lesoffres.size();i++){
                             System.out.println("- id:" + lesoffres.get(i).getIdOffre()+" , prix:"+lesoffres.get(i).getPrixInitial()+" ");
                         }*/
                         
-                        
+                        // demander les infos sur le vol le moins cher
+                        myAgent.addBehaviour(new ReceiveFlightBehavior());
+                        myAgent.addBehaviour(new BuyFlightBehavior(lesoffres.get(0).getIdOffre().toString()));
                         
                     } 
                 

@@ -15,7 +15,7 @@ import java.io.Serializable;
  */
 public class Offre implements Comparable, Serializable  {
     
-    private int idOffre;
+    private Integer idOffre;
     private Vol vol;
     private double prixInitial;
     private double nouveauPrix;
@@ -23,14 +23,14 @@ public class Offre implements Comparable, Serializable  {
     public Offre() {
     }
 
-    public Offre(int idOffre, Vol vol, double prixInitial, double nouveauPrix) {
+    public Offre(Integer idOffre, Vol vol, double prixInitial, double nouveauPrix) {
         this.idOffre = idOffre;
         this.vol = vol;
         this.prixInitial = prixInitial;
         this.nouveauPrix = nouveauPrix;
     }
 
-    public int getIdOffre() {
+    public Integer getIdOffre() {
         return idOffre;
     }
 

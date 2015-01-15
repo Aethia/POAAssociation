@@ -283,11 +283,8 @@ public class CompanieDesAvionsQuiLarguentDesColisDeVaccinsSurLesPaysEmergent ext
                 Offre offre = offresGenerees.get(orderId - 1);
 
                 log("Le client confirme l'achat de l'offre " + orderId + " à " + offre.getNouveauPrix() + "euros.");
-                log("Solde précédent: " + DummyDatabase.getSolde());
 
                 DummyDatabase.incrSolde(offre.getNouveauPrix());
-
-                log("Nouveau solde: " + DummyDatabase.getSolde());
 
                 reply.setPerformative(MSG_REP_ACHAT);
                 reply.setContent("OK");

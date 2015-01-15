@@ -43,7 +43,6 @@ public class CountryFirst extends OneShotBehaviour {
 
         // obtenir les vols pour la france
         assoc.addBehaviour(new AskFlightsBehavior(countryName,countries.get("France")));
-        System.out.println("j'espere avoir recu les vols");
         ArrayList<Offre> lesOffres = assoc.getLesOffres();
         
     }

@@ -12,6 +12,7 @@ import behaviors.data.AskSicknessBehavior;
 import behaviors.data.AskVaccinesBehavior;
 import behaviors.data.Offre;
 import behaviors.data.ReceiveBehavior;
+import behaviors.data.ReceiveFlightBehavior;
 import behaviors.data.ReceiveFlightsBehavior;
 import business.SickPeople;
 import business.Sickness;
