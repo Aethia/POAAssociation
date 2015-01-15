@@ -56,7 +56,7 @@ public class CountryFirst extends OneShotBehaviour {
         
         assoc.addBehaviour(new FindVaccineBehavior(sicknesses));
         // obtenir les vols pour la france
-        //assoc.addBehaviour(new AskFlightsBehavior(countryName,countries.get("France")));
+        assoc.addBehaviour(new AskFlightsBehavior(countryName,countries.get("France")));
         ArrayList<Offre> lesOffres = assoc.getLesOffres();
         
     }
