@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package behaviors.data;
+import compagnies.Offre;
 import agents.AgentAssociation;
 import jade.core.behaviours.CyclicBehaviour;
 import jade.lang.acl.ACLMessage;

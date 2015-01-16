@@ -10,7 +10,7 @@ import behaviors.data.AskFlightsBehavior;
 import behaviors.data.AskSickPeopleBehavior;
 import behaviors.data.AskSicknessBehavior;
 import behaviors.data.AskVaccinesBehavior;
-import behaviors.data.Offre;
+import compagnies.Offre;
 import behaviors.data.ReceiveBehavior;
 import behaviors.data.ReceiveFlightBehavior;
 import behaviors.data.ReceiveFlightsBehavior;

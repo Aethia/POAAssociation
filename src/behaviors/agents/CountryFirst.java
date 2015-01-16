@@ -8,7 +8,7 @@ package behaviors.agents;
 import agents.AgentAssociation;
 import behaviors.data.AskFlightsBehavior;
 import behaviors.data.FindVaccineBehavior;
-import behaviors.data.Offre;
+import compagnies.Offre;
 import business.Country;
 import business.SickPeople;
 import business.Sickness;

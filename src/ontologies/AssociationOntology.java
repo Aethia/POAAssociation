@@ -5,9 +5,9 @@
  */
 package ontologies;
 
-import behaviors.data.Offre;
-import behaviors.data.Pays;
-import behaviors.data.Vol;
+import compagnies.Offre;
+import compagnies.Pays;
+import compagnies.Vol;
 import business.SickPeople;
 import business.Sickness;
 import business.Vaccine;
