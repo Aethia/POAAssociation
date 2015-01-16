@@ -55,7 +55,7 @@ public class DummyDatabase {
                 villes.add(toutelesvilles.get(randomizer.nextInt(toutelesvilles.size() - 1)));
             }
 
-            Vol generated=new Vol(i,depart,arrive,villes,charter,capaciteMax,prixUnitaire,capaciteOccupee,taxeAeroport,qteCarburant,prixCarburant);
+            Vol generated=new Vol(i,depart,arrive,villes,charter,capaciteMax,prixUnitaire,capaciteOccupee,taxeAeroport,qteCarburant,prixCarburant,1);
             vols.add(generated);
             i++;
         }
