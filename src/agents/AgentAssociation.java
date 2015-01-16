@@ -124,7 +124,9 @@ public class AgentAssociation extends Agent {
        
         
         
-        
+        /*
+        demander les maladies
+        */
         Thread thread = new Thread() {
             public void run() {
                 try {
@@ -138,6 +140,9 @@ public class AgentAssociation extends Agent {
         };
         thread.start();
         
+        /*
+        demander les vaccins
+        */
         Thread thread2 = new Thread() {
             public void run() {
                 try {
@@ -150,6 +155,9 @@ public class AgentAssociation extends Agent {
         };
         thread2.start();
         
+        /*
+        demander les malades par pays
+        */
         Thread thread3 = new Thread() {
             public void run() {
                 try {
@@ -162,6 +170,9 @@ public class AgentAssociation extends Agent {
         };
         thread3.start();
         
+        /*
+        on lance le comportement
+        */
         Thread thread4 = new Thread() {
             public void run() {
                 try {
