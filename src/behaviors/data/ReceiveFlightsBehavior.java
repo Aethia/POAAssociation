@@ -6,6 +6,7 @@
 package behaviors.data;
 import compagnies.Offre;
 import agents.AgentAssociation;
+import business.Constants;
 import jade.core.behaviours.CyclicBehaviour;
 import jade.lang.acl.ACLMessage;
 import jade.lang.acl.MessageTemplate;
@@ -18,13 +19,7 @@ import java.util.Collections;
  */
 public class ReceiveFlightsBehavior extends CyclicBehaviour {
 
-    public static final int MSG_DEM_VOL = 1000;
-    public static final int MSG_REP_OFFRES = 1001;
-    public static final int MSG_DEM_NEGOCIE = 1002;
-    public static final int MSG_REP_NEGOCIE = 1003;
-    public static final int MSG_DEM_ACHAT = 1005;
-    public static final int MSG_REP_ACHAT = 1006;
-    private final static MessageTemplate mt = MessageTemplate.MatchPerformative(ReceiveFlightsBehavior.MSG_REP_OFFRES);
+    private final static MessageTemplate mt = MessageTemplate.MatchPerformative(Constants.MSG_REP_OFFRES);
 
     @Override
     public void action() {
@@ -50,6 +45,9 @@ public class ReceiveFlightsBehavior extends CyclicBehaviour {
             } catch (Exception e) {
                 System.out.println(e);
             }
+        }
+        else {
+            block();
         }
 
     }

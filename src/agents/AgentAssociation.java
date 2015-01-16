@@ -14,6 +14,8 @@ import compagnies.Offre;
 import behaviors.data.ReceiveBehavior;
 import behaviors.data.ReceiveFlightBehavior;
 import behaviors.data.ReceiveFlightsBehavior;
+import behaviors.data.ReceiveSicknessBehavior;
+import behaviors.data.ReceiveSicknessPeopleBehavior;
 import business.SickPeople;
 import business.Sickness;
 import business.Vaccine;
@@ -116,6 +118,8 @@ public class AgentAssociation extends Agent {
         getContentManager().registerOntology(ontology);
         addBehaviour(new ReceiveBehavior());
         addBehaviour(new ReceiveFlightsBehavior());
+        addBehaviour(new ReceiveSicknessBehavior());
+        addBehaviour(new ReceiveSicknessPeopleBehavior());
         
        
         
