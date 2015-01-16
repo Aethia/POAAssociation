@@ -9,7 +9,6 @@ import agents.AgentAssociation;
 import behaviors.data.AskFlightsBehavior;
 import behaviors.data.FindVaccineBehavior;
 import compagnies.Offre;
-import business.Country;
 import business.SickPeople;
 import business.Sickness;
 import jade.core.behaviours.OneShotBehaviour;
@@ -32,9 +31,7 @@ public class CountryFirst extends OneShotBehaviour {
         Map<Sickness, Integer> sicknesses = new HashMap<Sickness, Integer>();
         // obtenir les pays des malades
         for (SickPeople sick : assoc.getSickPeople()) {
-            if (countries.containsKey(sick.getCountry())) {
-                
-                
+            if (countries.containsKey(sick.getCountry())) {            
                 Integer nbSick = countries.get(sick.getCountry());
                 countries.put(sick.getCountry().getCountry(), sick.getNbSick() + nbSick);
             } else {

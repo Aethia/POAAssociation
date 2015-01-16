@@ -5,7 +5,7 @@
  */
 package behaviors.data;
 
-import business.SearchService;
+import business.*;
 import jade.core.AID;
 import jade.core.behaviours.OneShotBehaviour;
 import jade.lang.acl.ACLMessage;
@@ -18,10 +18,15 @@ public class AskSicknessBehavior extends OneShotBehaviour {
 
     @Override
     public void action() {
-        AID a = SearchService.searchService("MALADIES", myAgent);
+       /* AID a = SearchService.searchService("MALADIES", myAgent);
         ACLMessage aclMessage = new ACLMessage(ACLMessage.REQUEST);
         aclMessage.addReceiver(a);
         aclMessage.setContent("Liste maladies");
+        myAgent.send(aclMessage);*/
+        
+        AID a = SearchService.searchService("organization", myAgent);
+        ACLMessage aclMessage = new ACLMessage(Constants.MSG_DEM_MALADIE);
+        aclMessage.addReceiver(a);
         myAgent.send(aclMessage);
     }
 }

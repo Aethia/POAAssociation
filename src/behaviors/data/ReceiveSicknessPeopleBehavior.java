@@ -22,7 +22,6 @@ import java.util.logging.Logger;
  */
 public class ReceiveSicknessPeopleBehavior extends CyclicBehaviour {
 
-
     private final static MessageTemplate mt = MessageTemplate.MatchPerformative(Constants.MSG_REP_MALADE_PAYS_PAR_MALADIE);
 
     @Override

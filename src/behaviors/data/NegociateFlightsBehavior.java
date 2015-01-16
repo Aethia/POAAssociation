@@ -5,7 +5,6 @@
  */
 package behaviors.data;
 
-import business.Country;
 import business.SearchService;
 import jade.core.AID;
 import jade.core.behaviours.OneShotBehaviour;

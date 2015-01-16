@@ -18,10 +18,6 @@ import java.util.logging.Logger;
 
 public class ReceiveSicknessBehavior extends CyclicBehaviour {
 
-    public static final int MSG_DEM_MALADE_PAYS_PAR_MALADIE = 1030;
-    public static final int MSG_DEM_MALADIE = 1031;
-    public static final int MSG_REP_MALADE_PAYS_PAR_MALADIE = 1032;
-    public static final int MSG_REP_MALADIE = 1033;
     private final static MessageTemplate mt = MessageTemplate.MatchPerformative(Constants.MSG_REP_MALADIE);
 
     @Override

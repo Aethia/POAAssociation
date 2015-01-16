@@ -6,14 +6,8 @@
 package behaviors.data;
 
 import agents.AgentAssociation;
-import business.Country;
-import business.SearchService;
 import business.Vaccine;
-import jade.core.AID;
 import jade.core.behaviours.OneShotBehaviour;
-import jade.lang.acl.ACLMessage;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  *

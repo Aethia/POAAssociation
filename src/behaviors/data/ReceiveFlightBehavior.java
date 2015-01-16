@@ -10,8 +10,6 @@ import jade.core.behaviours.CyclicBehaviour;
 import jade.lang.acl.ACLMessage;
 import jade.lang.acl.MessageTemplate;
 import business.Constants;
-import java.util.ArrayList;
-import java.util.Collections;
 
 /**
  *
