@@ -49,8 +49,17 @@ public class AgentAssociation extends Agent {
     private ArrayList<Sickness> sicknesses;
     private ArrayList<SickPeople> sickPeople;
     private ArrayList<Vaccine> vaccines;
+    private ArrayList<Vaccine> stockVaccines = new ArrayList<Vaccine>();
     private ArrayList<Offre> lesOffres;
     private int availableMoney = 5000;
+
+    public ArrayList<Vaccine> getStockVaccines() {
+        return stockVaccines;
+    }
+
+    public void setStockVaccines(ArrayList<Vaccine> stockVaccines) {
+        this.stockVaccines = stockVaccines;
+    }
 
     public ArrayList<Sickness> getSicknesses() {
         return sicknesses;

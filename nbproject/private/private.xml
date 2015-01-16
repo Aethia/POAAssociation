@@ -3,24 +3,26 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/projets/agents/src/behaviors/data/Pays.java</file>
-            <file>file:/D:/projets/agents/src/CompanieDesAvionsQuiLarguentDesColisDeVaccinsSurLesPaysEmergent.java</file>
-            <file>file:/D:/projets/agents/src/behaviors/data/NegociateFlightsBehavior.java</file>
-            <file>file:/D:/projets/agents/src/behaviors/agents/SicknessFirst.java</file>
-            <file>file:/D:/projets/agents/src/behaviors/data/ReceiveFlightBehavior.java</file>
-            <file>file:/D:/projets/agents/src/behaviors/data/AskSickPeopleBehavior.java</file>
-            <file>file:/D:/projets/agents/src/CompanieTest.java</file>
-            <file>file:/D:/projets/agents/src/behaviors/data/AskVaccinesBehavior.java</file>
-            <file>file:/D:/projets/agents/src/behaviors/data/BuyFlightBehavior.java</file>
-            <file>file:/D:/projets/agents/src/behaviors/data/ReceiveBehavior.java</file>
-            <file>file:/D:/projets/agents/src/behaviors/data/Offre.java</file>
-            <file>file:/D:/projets/agents/src/agents/AgentAssociation.java</file>
-            <file>file:/D:/projets/agents/src/behaviors/agents/CountryFirst.java</file>
-            <file>file:/D:/projets/agents/src/behaviors/data/AskFlightsBehavior.java</file>
-            <file>file:/D:/projets/agents/src/agents/AgentMalades.java</file>
-            <file>file:/D:/projets/agents/src/behaviors/data/AskSicknessBehavior.java</file>
-            <file>file:/D:/projets/agents/src/behaviors/data/Vol.java</file>
-            <file>file:/D:/projets/agents/src/behaviors/data/ReceiveFlightsBehavior.java</file>
+            <file>file:/Users/myriam/Documents/CoursM2/Jade/POAAssociation/src/business/Sickness.java</file>
+            <file>file:/Users/myriam/Documents/CoursM2/Jade/POAAssociation/src/agents/AgentMalades.java</file>
+            <file>file:/Users/myriam/Documents/CoursM2/Jade/POAAssociation/src/business/Vaccine.java</file>
+            <file>file:/Users/myriam/Documents/CoursM2/Jade/POAAssociation/src/poaassociation/Main.java</file>
+            <file>file:/Users/myriam/Documents/CoursM2/Jade/POAAssociation/src/behaviors/data/AskFlightsBehavior.java</file>
+            <file>file:/Users/myriam/Documents/CoursM2/Jade/POAAssociation/src/behaviors/data/BuyFlightBehavior.java</file>
+            <file>file:/Users/myriam/Documents/CoursM2/Jade/POAAssociation/src/behaviors/data/AskSicknessBehavior.java</file>
+            <file>file:/Users/myriam/Documents/CoursM2/Jade/POAAssociation/src/behaviors/data/ReceiveFlightsBehavior.java</file>
+            <file>file:/Users/myriam/Documents/CoursM2/Jade/POAAssociation/src/behaviors/agents/CountryFirst.java</file>
+            <file>file:/Users/myriam/Documents/CoursM2/Jade/POAAssociation/src/behaviors/data/ReceiveFlightBehavior.java</file>
+            <file>file:/Users/myriam/Documents/CoursM2/Jade/POAAssociation/src/behaviors/data/AskVaccinesBehavior.java</file>
+            <file>file:/Users/myriam/Documents/CoursM2/Jade/POAAssociation/src/behaviors/data/BuyVaccinesBehavior.java</file>
+            <file>file:/Users/myriam/Documents/CoursM2/Jade/POAAssociation/src/agents/AgentMaladies.java</file>
+            <file>file:/Users/myriam/Documents/CoursM2/Jade/POAAssociation/src/agents/AgentAssociation.java</file>
+            <file>file:/Users/myriam/Documents/CoursM2/Jade/POAAssociation/src/behaviors/data/AskSickPeopleBehavior.java</file>
+            <file>file:/Users/myriam/Documents/CoursM2/Jade/POAAssociation/src/behaviors/data/ReceiveBehavior.java</file>
+            <file>file:/Users/myriam/Documents/CoursM2/Jade/POAAssociation/src/behaviors/agents/SicknessFirst.java</file>
+            <file>file:/Users/myriam/Documents/CoursM2/Jade/POAAssociation/src/agents/AgentLabo.java</file>
+            <file>file:/Users/myriam/Documents/CoursM2/Jade/POAAssociation/src/business/Country.java</file>
+            <file>file:/Users/myriam/Documents/CoursM2/Jade/POAAssociation/src/behaviors/data/FindVaccineBehavior.java</file>
         </group>
     </open-files>
 </project-private>

@@ -18,6 +18,8 @@ import jade.domain.FIPAAgentManagement.ServiceDescription;
 import jade.lang.acl.ACLMessage;
 import jade.lang.acl.MessageTemplate;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
@@ -48,7 +50,7 @@ public class ReceiveBehavior extends CyclicBehaviour {
                             Sickness message = (Sickness) aclMessage.getContentObject();
                             System.out.println("détails de la maladie\""+message.getNom() + "\"");
                             System.out.println("- Temps d'incubation : "+message.getDelaiIncubation());
-                            System.out.println("- Virulance (sur 5) : "+message.getVirulence());
+                            System.out.println("- Virulence (sur 5) : "+message.getVirulence());
                         }
                     }
                     /*
@@ -77,6 +79,17 @@ public class ReceiveBehavior extends CyclicBehaviour {
                         } else if (aclMessage.getContentObject() instanceof Vaccine) {
                             Vaccine message = (Vaccine) aclMessage.getContentObject();
                             System.out.println(message.getNom() + " guérit " + message.getMaladie().getNom()+" et coûte "+message.getPrice());
+                        
+                                
+                            
+                        }
+                        else if (aclMessage.getContentObject() instanceof HashMap){
+                            Map<Vaccine, Integer> map = (HashMap<Vaccine, Integer>)aclMessage.getContentObject();
+                            for(Vaccine v : map.keySet()){
+                                System.out.println("Achat de "+map.get(v)+" "+v.getNom());
+                                assoc.addBehaviour(new PurchaseVaccineBehavior(v, map.get(v)));
+                            }
+                            
                         }
                     }
                     else if (aclMessage.getSender().equals(SearchService.searchService("compagnie",myAgent))) {

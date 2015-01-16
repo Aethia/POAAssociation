@@ -108,7 +108,13 @@ public class AgentMalades extends Agent {
 
     @Override
     protected void takeDown() {
-
+        // Deregister from the yellow pages 
+        try {
+            DFService.deregister(this);
+        } catch (FIPAException fe) {
+            fe.printStackTrace();
+        }
+        System.out.println("Agent : " + getAID().getName() + " terminé");
     }
 
     private void sendMessage(AID id, Serializable msg) throws IOException {
